@@ -9,15 +9,19 @@ using System.Threading.Tasks;
 
 namespace Commons
 {
+    /// <summary>
+    /// 数据库帮助类
+    /// </summary>
     public class DBHelper
     {
         public string ConnStr { get; set; }
 
-        private DBHelper() {
-            ConnStr = "server=localhost;user=root;password=";//ConfigurationManager.ConnectionStrings["connStr"].ToString();
+        private DBHelper()
+        {
+            ConnStr = ConfigurationManager.ConnectionStrings["connStr"].ToString();
         }
 
-        //DbManager单实例
+        // 使用单例模式创建
         private static DBHelper _instance = null;
         public static DBHelper Ins
         {
@@ -50,7 +54,6 @@ namespace Commons
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
-
         public DataTable ExcuteDataTable(string sql, params MySqlParameter[] paras)
         {
             using (MySqlConnection con = new MySqlConnection(ConnStr))
@@ -94,7 +97,7 @@ namespace Commons
                     catch (MySqlException e)
                     {
                         connection.Close();
-                        throw e;
+                        return e;
                     }
                 }
             }
@@ -163,7 +166,7 @@ namespace Commons
         }
 
         /// <summary>
-        /// 多语句的事物管理
+        /// 多语句的事务管理
         /// </summary>
         /// <param name="cmds">命令数组</param>
         /// <returns></returns>

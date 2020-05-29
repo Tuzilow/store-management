@@ -16,11 +16,16 @@ namespace TestConsole
             ProjectDB db = new ProjectDB();
             Console.WriteLine(db.CreateDatabase());
             Console.WriteLine(db.ChangeDatabase());
+            Console.WriteLine(db.DropTable("goods"));
             Console.WriteLine(db.CreateGoodsTable());
             Console.WriteLine(db.CreateFactoryTable());
 
             GoodsBLL goodsBLL = new GoodsBLL();
-            goodsBLL.Insert("坦克", "载具", 100, 0, 10, 50, Convert.ToDateTime("2018/01/12"), Convert.ToDateTime("2021/10/12"), 0);
+            FactoryBLL factoryBLL = new FactoryBLL();
+
+            factoryBLL.Insert("军火商", "terrier", "11111111111");
+
+            goodsBLL.Insert("坦克", "载具", 100, 0, 10, 50, Convert.ToDateTime("2018/01/12"), Convert.ToDateTime("2021/10/12"), 1);
             List<GoodsInfo> goods = goodsBLL.Find();
             foreach (var item in goods)
             {

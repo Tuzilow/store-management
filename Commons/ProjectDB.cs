@@ -62,29 +62,6 @@ namespace Commons
         }
 
         /// <summary>
-        /// 创建商品表
-        /// </summary>
-        /// <returns></returns>
-        public bool CreateGoodsTable()
-        {
-            string sql = 
-                $"create table if not exists goods(" +
-                $"goods_id int primary key not null auto_increment," +
-                $"goods_name nvarchar(64) not null," +
-                $"goods_type nvarchar(8) not null," +
-                $"goods_count int not null default 0," +
-                $"goods_sell_count int not null default 0," +
-                $"goods_cost double not null default 0," +
-                $"goods_price double not null default 0," +
-                $"goods_create_time datetime not null," +
-                $"factory_id int," +
-                $"goods_end_time datetime not null" +
-                $");";
-
-            return Db.ExecuteScalar(sql) == null;
-        }
-
-        /// <summary>
         /// 创建供应商表
         /// </summary>
         /// <returns></returns>
@@ -96,6 +73,30 @@ namespace Commons
                 $"factory_name nvarchar(64) not null," +
                 $"factory_address nvarchar(128) not null," +
                 $"factory_phone char(11) not null" +
+                $");";
+
+            return Db.ExecuteScalar(sql) == null;
+        }
+
+        /// <summary>
+        /// 创建商品表
+        /// </summary>
+        /// <returns></returns>
+        public bool CreateGoodsTable()
+        {
+            string sql =
+                $"create table if not exists goods(" +
+                $"goods_id int primary key not null auto_increment," +
+                $"goods_name nvarchar(64) not null," +
+                $"goods_type nvarchar(8) not null," +
+                $"goods_count int not null default 0," +
+                $"goods_sell_count int not null default 0," +
+                $"goods_cost double not null default 0," +
+                $"goods_price double not null default 0," +
+                $"goods_create_time datetime not null," +
+                $"factory_id int not null," +
+                $"goods_end_time datetime not null," +
+                $"foreign key(factory_id) references factory(factory_id)" +
                 $");";
 
             return Db.ExecuteScalar(sql) == null;

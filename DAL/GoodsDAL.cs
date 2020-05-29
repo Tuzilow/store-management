@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+    /// <summary>
+    /// 商品数据访问层
+    /// </summary>
     public class GoodsDAL
     {
         DBHelper db = DBHelper.Ins;

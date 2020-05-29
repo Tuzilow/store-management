@@ -57,7 +57,7 @@ namespace BLL
         /// <param name="factoryId">供应商</param>
         /// <param name="endTime">保质期</param>
         /// <returns></returns>
-        public bool Insert(string name, string type, int count, int sellCount, double cost, double price, DateTime createTime, DateTime endTime, int factoryId = 0)
+        public bool Insert(string name, string type, int count, int sellCount, double cost, double price, DateTime createTime, DateTime endTime, int factoryId)
         {
             // 如果商品存在，返回false
             if (IsGoodsExist(name))

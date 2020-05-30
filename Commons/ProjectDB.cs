@@ -101,5 +101,65 @@ namespace Commons
 
             return Db.ExecuteScalar(sql) == null;
         }
+
+        /// <summary>
+        /// 创建订单表
+        /// </summary>
+        /// <returns></returns>
+        public bool CreateOrderTable()
+        {
+            string sql =
+                $"create table if not exists `order`(" +
+                $"order_id int primary key not null auto_increment," +
+                $"goods_id int not null," +
+                $"goods_count int not null," +
+                $"factory_id int not null," +
+                $"order_create_time datetime not null," +
+                $"order_type nvarchar(8) not null," +
+                $"order_remarks nvarchar(512)," +
+                $"foreign key(goods_id) references goods(goods_id)," +
+                $"foreign key(factory_id) references factory(factory_id)" +
+                $");";
+
+            return Db.ExecuteScalar(sql) == null;
+        }
+
+        /// <summary>
+        /// 创建员工表
+        /// </summary>
+        /// <returns></returns>
+        public bool CreateStaffTable()
+        {
+            string sql =
+                $"create table if not exists staff(" +
+                $"staff_id int primary key not null auto_increment," +
+                $"staff_name nvarchar(4) not null," +
+                $"staff_gender char(1) not null," +
+                $"staff_birthday datetime," +
+                $"staff_address nvarchar(128)," +
+                $"staff_position nvarchar(8)," +
+                $"staff_salary double not null" +
+                $");";
+
+            return Db.ExecuteScalar(sql) == null;
+        }
+
+        /// <summary>
+        /// 创建vip表
+        /// </summary>
+        /// <returns></returns>
+        public bool CreateVipTable()
+        {
+            string sql =
+                $"create table if not exists vip(" +
+                $"vip_id int primary key not null auto_increment," +
+                $"vip_name nvarchar(4) not null," +
+                $"vip_gender char(1) not null," +
+                $"vip_birthday datetime," +
+                $"vip_join datetime not null" +
+                $");";
+
+            return Db.ExecuteScalar(sql) == null;
+        }
     }
 }

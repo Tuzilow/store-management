@@ -161,5 +161,40 @@ namespace Commons
 
             return Db.ExecuteScalar(sql) == null;
         }
+
+        /// <summary>
+        /// 创建积分表
+        /// </summary>
+        /// <returns></returns>
+        public bool CreateIntegralTable()
+        {
+            string sql =
+                $"create table if not exists integral(" +
+                $"integral_id int primary key not null auto_increment," +
+                $"is_out boolean not null default false," +
+                $"integral_count int not null," +
+                $"vip_id int not null," +
+                $"foreign key(vip_id) references vip(vip_id)" +
+                $");";
+
+            return Db.ExecuteScalar(sql) == null;
+        }
+
+        /// <summary>
+        /// 创建数据库及数据表
+        /// </summary>
+        /// <returns></returns>
+        public bool DoAllCreate()
+        {
+            return
+                CreateDatabase() &&
+                ChangeDatabase() &&
+                CreateFactoryTable() &&
+                CreateGoodsTable() &&
+                CreateOrderTable() &&
+                CreateStaffTable() &&
+                CreateVipTable() &&
+                CreateIntegralTable();
+        }
     }
 }

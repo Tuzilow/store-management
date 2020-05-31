@@ -27,7 +27,7 @@ namespace DAL
                 $"factory_name," +
                 $"factory_address," +
                 $"factory_phone" +
-                $"from factory;";
+                $"from store_management.factory;";
 
             return FactoryInfo.ToList(db.ExecuteDataSet(sql));
         }
@@ -45,7 +45,7 @@ namespace DAL
                 $"factory_name," +
                 $"factory_address," +
                 $"factory_phone" +
-                $"from factory where factory_id={id};";
+                $"from store_management.factory where factory_id={id};";
             return FactoryInfo.ToList(db.ExecuteDataSet(sql))[0];
         }
 
@@ -56,7 +56,7 @@ namespace DAL
         /// <returns></returns>
         public int FindIdByName(string name)
         {
-            string sql = $"select factory_id from factory where factory_name='{name}';";
+            string sql = $"select factory_id from store_management.factory where factory_name='{name}';";
 
             return Convert.ToInt32(db.ExecuteScalar(sql));
         }
@@ -97,7 +97,7 @@ namespace DAL
         /// <returns></returns>
         public bool Delete(int id)
         {
-            string sql = $"delete from factory where factory_id={id}";
+            string sql = $"delete from store_management.factory where factory_id={id}";
 
             return db.ExecuteNonquery(sql) > 0;
         }

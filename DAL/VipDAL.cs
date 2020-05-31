@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+    /// <summary>
+    /// 会员数据访问层
+    /// </summary>
     public class VipDAL
     {
         private readonly DBHelper db = DBHelper.Ins;
@@ -25,7 +28,7 @@ namespace DAL
                 $"vip_gender," +
                 $"vip_birthday," +
                 $"vip_join" +
-                $"from vip;";
+                $"from store_management.vip;";
 
             return VipInfo.ToList(db.ExecuteDataSet(sql));
         }
@@ -44,7 +47,7 @@ namespace DAL
                 $"vip_gender," +
                 $"vip_birthday," +
                 $"vip_join" +
-                $"from vip where vip_id={id};";
+                $"from store_management.vip where vip_id={id};";
             return VipInfo.ToList(db.ExecuteDataSet(sql))[0];
         }
 
@@ -55,7 +58,7 @@ namespace DAL
         /// <returns></returns>
         public int FindIdByName(string name)
         {
-            string sql = $"select vip_id from vip where vip_name='{name}';";
+            string sql = $"select vip_id from store_management.vip where vip_name='{name}';";
 
             return Convert.ToInt32(db.ExecuteScalar(sql));
         }
@@ -90,13 +93,13 @@ namespace DAL
         }
 
         /// <summary>
-        /// 删除供货商
+        /// 删除vip
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public bool Delete(int id)
         {
-            string sql = $"delete from vip where vip_id={id}";
+            string sql = $"delete from store_management.vip where vip_id={id}";
 
             return db.ExecuteNonquery(sql) > 0;
         }

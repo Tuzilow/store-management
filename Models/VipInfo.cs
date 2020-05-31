@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /// <summary>
+    /// 会员
+    /// </summary>
     public class VipInfo
     {
         public int Id { get; set; }

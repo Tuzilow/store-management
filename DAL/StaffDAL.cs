@@ -30,7 +30,7 @@ namespace DAL
                 $"staff_address," +
                 $"staff_salary," +
                 $"staff_position" +
-                $"from staff;";
+                $"from store_management.staff;";
 
             return StaffInfo.ToList(db.ExecuteDataSet(sql));
         }
@@ -51,7 +51,7 @@ namespace DAL
                 $"staff_address," +
                 $"staff_salary," +
                 $"staff_position" +
-                $"from staff where staff_id={id}";
+                $"from store_management.staff where staff_id={id}";
             return StaffInfo.ToList(db.ExecuteDataSet(sql))[0];
         }
 
@@ -62,7 +62,7 @@ namespace DAL
         /// <returns></returns>
         public int FindIdByName(string name)
         {
-            string sql = $"select staff_id from staff where staff_name='{name}';";
+            string sql = $"select staff_id from store_management.staff where staff_name='{name}';";
 
             return Convert.ToInt32(db.ExecuteScalar(sql));
         }
@@ -103,7 +103,7 @@ namespace DAL
         /// <returns></returns>
         public bool Delete(int id)
         {
-            string sql = $"delete from staff where staff_id={id}";
+            string sql = $"delete from store_management.staff where staff_id={id}";
 
             return db.ExecuteNonquery(sql) > 0;
         }

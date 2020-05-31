@@ -29,7 +29,7 @@ namespace DAL
                 $"order_create_time," +
                 $"order_type," +
                 $"order_remarks" +
-                $"from `order`;";
+                $"from store_management.`order`;";
 
             return OrderInfo.ToList(db.ExecuteDataSet(sql));
         }
@@ -49,7 +49,7 @@ namespace DAL
                 $"order_create_time," +
                 $"order_type," +
                 $"order_remarks" +
-                $"from `order` where order_id={id}";
+                $"from store_management.`order` where order_id={id}";
             return OrderInfo.ToList(db.ExecuteDataSet(sql))[0];
         }
 
@@ -74,7 +74,7 @@ namespace DAL
         /// <returns></returns>
         public bool Delete(int id)
         {
-            string sql = $"delete from `order` where order_id={id}";
+            string sql = $"delete from store_management.`order` where order_id={id}";
 
             return db.ExecuteNonquery(sql) > 0;
         }

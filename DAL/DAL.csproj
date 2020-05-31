@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="FactoryDAL.cs" />
     <Compile Include="GoodsDAL.cs" />
+    <Compile Include="IntegralDAL.cs" />
     <Compile Include="OrderDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffDAL.cs" />

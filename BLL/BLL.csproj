@@ -46,6 +46,7 @@
     <Compile Include="OrderBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffBLL.cs" />
+    <Compile Include="VipBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

@@ -1,0 +1,33 @@
+body {
+  height: 100vh;
+  background-color: #eef1f6;
+  overflow: hidden;
+}
+caption {
+  caption-side: top;
+  color: #111;
+}
+.content .aside-nav {
+  width: 12vw;
+  background-color: #384451;
+  height: 100vh;
+}
+.content .aside-nav a {
+  color: aliceblue;
+  padding-left: 2rem;
+}
+.content .aside-nav a:hover,
+.content .aside-nav .active {
+  background-color: #44525f;
+}
+.content main {
+  box-sizing: border-box;
+  background-color: #eef1f6;
+  width: 88vw;
+  padding: 1rem 1.5rem;
+}
+.content main table,
+.table thead th {
+  border-width: 1px;
+  border-color: #c0c4c9 !important;
+}

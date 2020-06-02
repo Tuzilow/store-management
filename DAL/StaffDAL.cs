@@ -50,7 +50,7 @@ namespace DAL
                 $"staff_birthday," +
                 $"staff_address," +
                 $"staff_salary," +
-                $"staff_position" +
+                $"staff_position_id" +
                 $"from store_management.staff where staff_id={id}";
             return StaffInfo.ToList(db.ExecuteDataSet(sql))[0];
         }
@@ -75,8 +75,8 @@ namespace DAL
         public bool Insert(StaffInfo staff)
         {
             string sql =
-                $"insert into staff(staff_name,staff_gender,staff_birthday,staff_address,staff_salary,staff_position) " +
-                $"values ('{staff.Name}','{staff.Gender}','{staff.Birthday}','{staff.Address}',{staff.Salary},'{staff.Position}');";
+                $"insert into staff(staff_name,staff_gender,staff_birthday,staff_address,staff_salary,staff_position_id) " +
+                $"values ('{staff.Name}','{staff.Gender}','{staff.Birthday}','{staff.Address}',{staff.Salary},'{staff.PositionId}');";
 
             return db.ExecuteNonquery(sql) > 0;
         }
@@ -90,7 +90,7 @@ namespace DAL
         {
             string sql =
                 $"update staff " +
-                $"set staff_name='{staff.Name}',staff_gender='{staff.Gender}',staff_birthday='{staff.Birthday}',staff_address='{staff.Address}',staff_salary={staff.Salary},staff_position='{staff.Position}' " +
+                $"set staff_name='{staff.Name}',staff_gender='{staff.Gender}',staff_birthday='{staff.Birthday}',staff_address='{staff.Address}',staff_salary={staff.Salary},staff_position_id='{staff.PositionId}' " +
                 $"where staff_id={staff.Id};";
 
             return db.ExecuteNonquery(sql) > 0;

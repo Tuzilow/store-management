@@ -49,9 +49,9 @@ namespace BLL
         /// <param name="birthday"></param>
         /// <param name="address"></param>
         /// <param name="salary"></param>
-        /// <param name="position"></param>
+        /// <param name="positionId"></param>
         /// <returns></returns>
-        public bool Insert(string name, string gender, DateTime birthday, string address, double salary, string position)
+        public bool Insert(string name, string gender, DateTime birthday, string address, double salary, int positionId)
         {
             // 如果商品存在，返回false
             if (IsStaffExist(name))
@@ -66,7 +66,7 @@ namespace BLL
                 Birthday = birthday,
                 Address = address,
                 Salary = salary,
-                Position = position
+                PositionId = positionId
             };
 
             return DAL.Insert(staff);
@@ -81,9 +81,9 @@ namespace BLL
         /// <param name="birthday"></param>
         /// <param name="address"></param>
         /// <param name="salary"></param>
-        /// <param name="position"></param>
+        /// <param name="positionId"></param>
         /// <returns></returns>
-        public bool UpdateById(int id, string name, string gender, DateTime birthday, string address, double salary, string position)
+        public bool UpdateById(int id, string name, string gender, DateTime birthday, string address, double salary, int positionId)
         {
             StaffInfo staff = FindOne(id);
             staff.Name = name;
@@ -91,7 +91,7 @@ namespace BLL
             staff.Birthday = birthday;
             staff.Address = address;
             staff.Salary = salary;
-            staff.Position = position;
+            staff.PositionId = positionId;
 
             return DAL.Update(staff);
         }

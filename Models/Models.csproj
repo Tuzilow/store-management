@@ -45,6 +45,7 @@
     <Compile Include="GoodsInfo.cs" />
     <Compile Include="IntegralInfo.cs" />
     <Compile Include="OrderInfo.cs" />
+    <Compile Include="PositionInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffInfo.cs" />
     <Compile Include="VipInfo.cs" />

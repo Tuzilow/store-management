@@ -18,7 +18,7 @@ namespace Commons
         /// </summary>
         /// <param name="database">数据库名称</param>
         /// <returns></returns>
-        public bool CreateDatabase()
+        private bool CreateDatabase()
         {
             string sql = $"create database if not exists `store_management`;";
 
@@ -30,7 +30,7 @@ namespace Commons
         /// </summary>
         /// <param name="database">数据库名称</param>
         /// <returns></returns>
-        public bool DropDatabase()
+        private bool DropDatabase()
         {
             string sql = $"drop database `store_management`;";
 
@@ -42,7 +42,7 @@ namespace Commons
         /// </summary>
         /// <param name="database">数据库名称</param>
         /// <returns></returns>
-        public bool ChangeDatabase()
+        private bool ChangeDatabase()
         {
             string sql = $"use `store_management`;";
 
@@ -54,7 +54,7 @@ namespace Commons
         /// </summary>
         /// <param name="table">表名</param>
         /// <returns></returns>
-        public bool DropTable(string table)
+        private bool DropTable(string table)
         {
             string sql = $"drop table {table}";
 
@@ -65,7 +65,7 @@ namespace Commons
         /// 创建供应商表
         /// </summary>
         /// <returns></returns>
-        public bool CreateFactoryTable()
+        private bool CreateFactoryTable()
         {
             string sql =
                 $"create table if not exists factory(" +
@@ -82,7 +82,7 @@ namespace Commons
         /// 创建商品表
         /// </summary>
         /// <returns></returns>
-        public bool CreateGoodsTable()
+        private bool CreateGoodsTable()
         {
             string sql =
                 $"create table if not exists goods(" +
@@ -106,7 +106,7 @@ namespace Commons
         /// 创建订单表
         /// </summary>
         /// <returns></returns>
-        public bool CreateOrderTable()
+        private bool CreateOrderTable()
         {
             string sql =
                 $"create table if not exists `order`(" +
@@ -125,10 +125,26 @@ namespace Commons
         }
 
         /// <summary>
+        /// 创建职位表
+        /// </summary>
+        /// <returns></returns>
+        private bool CreatePositionTable()
+        {
+            string sql =
+                $"create table if not exists position(" +
+                $"position_id int primary key not null auto_increment," +
+                $"position_name nvarchar(8) not null," +
+                $"position_desc nvarchar(128)" +
+                $");";
+
+            return Db.ExecuteScalar(sql) == null;
+        }
+
+        /// <summary>
         /// 创建员工表
         /// </summary>
         /// <returns></returns>
-        public bool CreateStaffTable()
+        private bool CreateStaffTable()
         {
             string sql =
                 $"create table if not exists staff(" +
@@ -137,8 +153,9 @@ namespace Commons
                 $"staff_gender char(1) not null," +
                 $"staff_birthday datetime," +
                 $"staff_address nvarchar(128)," +
-                $"staff_position nvarchar(8)," +
-                $"staff_salary double not null" +
+                $"staff_position_id int not null," +
+                $"staff_salary double not null," +
+                $"foreign key(staff_position_id) references position(position_id)" +
                 $");";
 
             return Db.ExecuteScalar(sql) == null;
@@ -148,7 +165,7 @@ namespace Commons
         /// 创建vip表
         /// </summary>
         /// <returns></returns>
-        public bool CreateVipTable()
+        private bool CreateVipTable()
         {
             string sql =
                 $"create table if not exists vip(" +
@@ -166,7 +183,7 @@ namespace Commons
         /// 创建积分表
         /// </summary>
         /// <returns></returns>
-        public bool CreateIntegralTable()
+        private bool CreateIntegralTable()
         {
             string sql =
                 $"create table if not exists integral(" +
@@ -192,9 +209,19 @@ namespace Commons
                 CreateFactoryTable() &&
                 CreateGoodsTable() &&
                 CreateOrderTable() &&
+                CreatePositionTable() &&
                 CreateStaffTable() &&
                 CreateVipTable() &&
                 CreateIntegralTable();
+        }
+
+        /// <summary>
+        /// 删除数据库
+        /// </summary>
+        /// <returns></returns>
+        public bool DoClear()
+        {
+            return DropDatabase();
         }
     }
 }

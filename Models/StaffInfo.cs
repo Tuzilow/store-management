@@ -49,7 +49,7 @@ namespace Models
                         case "staff_address":
                             staff.Address = dr[dc].ToString();
                             break;
-                        case "staff_position":
+                        case "staff_position_id":
                             staff.PositionId = Convert.ToInt32(dr[dc]);
                             break;
                         case "staff_salary":

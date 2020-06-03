@@ -131,7 +131,7 @@ namespace Commons
         private bool CreatePositionTable()
         {
             string sql =
-                $"create table if not exists position(" +
+                $"create table if not exists `position`(" +
                 $"position_id int primary key not null auto_increment," +
                 $"position_name nvarchar(8) not null," +
                 $"position_desc nvarchar(128)" +
@@ -155,7 +155,7 @@ namespace Commons
                 $"staff_address nvarchar(128)," +
                 $"staff_position_id int not null," +
                 $"staff_salary double not null," +
-                $"foreign key(staff_position_id) references position(position_id)" +
+                $"foreign key(staff_position_id) references `position`(position_id)" +
                 $");";
 
             return Db.ExecuteScalar(sql) == null;
@@ -195,6 +195,17 @@ namespace Commons
                 $");";
 
             return Db.ExecuteScalar(sql) == null;
+        }
+
+        /// <summary>
+        /// 获取表格数据条数
+        /// </summary>
+        /// <param name="table"></param>
+        /// <returns></returns>
+        public int GetTableDataNum(string table)
+        {
+            string sql = $"select count(*) from {table};";
+            return Convert.ToInt32(Db.ExecuteScalar(sql));
         }
 
         /// <summary>

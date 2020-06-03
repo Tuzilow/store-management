@@ -21,6 +21,11 @@ namespace BLL
             return DAL.Find();
         }
 
+        public List<StaffInfo> Find(int pageIndex, int pageSize)
+        {
+            return DAL.Find(pageIndex, pageSize);
+        }
+
         /// <summary>
         /// 查找某个员工的信息
         /// </summary>

@@ -29,11 +29,28 @@ namespace DAL
                 $"staff_birthday," +
                 $"staff_address," +
                 $"staff_salary," +
-                $"staff_position" +
+                $"staff_position_id " +
                 $"from store_management.staff;";
 
             return StaffInfo.ToList(db.ExecuteDataSet(sql));
         }
+        public List<StaffInfo> Find(int pageIndex, int pageSize)
+        {
+            string sql =
+                $"select " +
+                $"staff_id," +
+                $"staff_name," +
+                $"staff_gender," +
+                $"staff_birthday," +
+                $"staff_address," +
+                $"staff_salary," +
+                $"staff_position_id " +
+                $"from store_management.staff " +
+                $"order by staff_id limit {pageSize} offset {pageSize * (pageIndex - 1)};";
+
+            return StaffInfo.ToList(db.ExecuteDataSet(sql));
+        }
+
 
         /// <summary>
         /// 查找某个员工信息
@@ -50,7 +67,7 @@ namespace DAL
                 $"staff_birthday," +
                 $"staff_address," +
                 $"staff_salary," +
-                $"staff_position_id" +
+                $"staff_position_id " +
                 $"from store_management.staff where staff_id={id}";
             return StaffInfo.ToList(db.ExecuteDataSet(sql))[0];
         }

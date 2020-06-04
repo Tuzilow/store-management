@@ -26,27 +26,41 @@ namespace DAL
                 $"integral_id," +
                 $"is_out," +
                 $"integral_count," +
-                $"vip_id" +
+                $"vip_id " +
                 $"from store_management.integral;";
 
             return IntegralInfo.ToList(db.ExecuteDataSet(sql));
         }
 
-        /// <summary>
-        /// 查找某个vip信息
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IntegralInfo FindOne(int id)
+        public List<IntegralInfo> Find(int pageIndex, int pageSize)
         {
             string sql =
                 $"select " +
                 $"integral_id," +
                 $"is_out," +
                 $"integral_count," +
-                $"vip_id" +
-                $"from store_management.vip integral integral_id={id};";
-            return IntegralInfo.ToList(db.ExecuteDataSet(sql))[0];
+                $"vip_id " +
+                $"from store_management.integral " +
+                $"order by integral_id limit {pageSize} offset {pageSize * (pageIndex - 1)};";
+
+            return IntegralInfo.ToList(db.ExecuteDataSet(sql));
+        }
+
+        /// <summary>
+        /// 查找某个vip的积分
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<IntegralInfo> FindOne(int id)
+        {
+            string sql =
+                $"select " +
+                $"integral_id," +
+                $"is_out," +
+                $"integral_count," +
+                $"vip_id " +
+                $"from store_management.integral where vip_id={id};";
+            return IntegralInfo.ToList(db.ExecuteDataSet(sql));
         }
 
         /// <summary>
@@ -58,7 +72,7 @@ namespace DAL
         {
             string sql =
                 $"insert into integral(is_out,integral_count,vip_id) " +
-                $"values ('{integral.IsOut}',{integral.Count},{integral.VipId});";
+                $"values ({(integral.IsOut == true ? 1 : 0)},{integral.Count},{integral.VipId});";
 
             return db.ExecuteNonquery(sql) > 0;
         }
@@ -72,7 +86,7 @@ namespace DAL
         {
             string sql =
                 $"update integral " +
-                $"set is_out='{integral.IsOut}',integral_count={integral.Count},vip_id={integral.VipId} " +
+                $"set is_out='{(integral.IsOut == true ? 1 : 0)}',integral_count={integral.Count},vip_id={integral.VipId} " +
                 $"where integral_id={integral.Id};";
 
             return db.ExecuteNonquery(sql) > 0;

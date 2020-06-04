@@ -24,6 +24,11 @@ namespace BLL
             return DAL.Find();
         }
 
+        public List<PositionInfo> Find(int pageIndex, int pageSize)
+        {
+            return DAL.Find(pageIndex, pageSize);
+        }
+
         /// <summary>
         /// 查找某个职位的信息
         /// </summary>

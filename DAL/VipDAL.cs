@@ -27,8 +27,22 @@ namespace DAL
                 $"vip_name," +
                 $"vip_gender," +
                 $"vip_birthday," +
-                $"vip_join" +
+                $"vip_join " +
                 $"from store_management.vip;";
+
+            return VipInfo.ToList(db.ExecuteDataSet(sql));
+        }
+        public List<VipInfo> Find(int pageIndex, int pageSize)
+        {
+            string sql =
+                $"select " +
+                $"vip_id," +
+                $"vip_name," +
+                $"vip_gender," +
+                $"vip_birthday," +
+                $"vip_join " +
+                $"from store_management.vip " +
+                $"order by vip_id limit {pageSize} offset {pageSize * (pageIndex - 1)};";
 
             return VipInfo.ToList(db.ExecuteDataSet(sql));
         }
@@ -46,7 +60,7 @@ namespace DAL
                 $"vip_name," +
                 $"vip_gender," +
                 $"vip_birthday," +
-                $"vip_join" +
+                $"vip_join " +
                 $"from store_management.vip where vip_id={id};";
             return VipInfo.ToList(db.ExecuteDataSet(sql))[0];
         }
@@ -72,7 +86,7 @@ namespace DAL
         {
             string sql =
                 $"insert into vip(vip_name,vip_gender,vip_birthday,vip_join) " +
-                $"values ('{vip.Name}','{vip.Gender}','{vip.Birthday}','{vip.JoinTime}');";
+                $"values ('{vip.Name}','{vip.Gender}','{vip.Birthday.ToString("yyyy-MM-dd")}','{vip.JoinTime.ToString("yyyy-MM-dd")}');";
 
             return db.ExecuteNonquery(sql) > 0;
         }
@@ -86,7 +100,7 @@ namespace DAL
         {
             string sql =
                 $"update vip " +
-                $"set vip_name='{vip.Name}',vip_gender='{vip.Gender}',vip_birthday='{vip.Birthday}',vip_join='{vip.JoinTime}' " +
+                $"set vip_name='{vip.Name}',vip_gender='{vip.Gender}',vip_birthday='{vip.Birthday.ToString("yyyy-MM-dd")}',vip_join='{vip.JoinTime.ToString("yyyy-MM-dd")}' " +
                 $"where vip_id={vip.Id};";
 
             return db.ExecuteNonquery(sql) > 0;

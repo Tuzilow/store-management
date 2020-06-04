@@ -37,8 +37,9 @@
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Order.aspx'">订单管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Factory.aspx'">供货商管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Staff.aspx?currentPage=1'">员工管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Vip.aspx'">会员管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Position.aspx'">职位管理</a>
+                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Position.aspx?currentPage=1'">职位管理</a>
+                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Vip.aspx?currentPage=1'">会员管理</a>
+                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Integral.aspx?currentPage=1'">积分管理</a>
             </nav>
         </aside>
         <main>

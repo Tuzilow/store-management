@@ -31,6 +31,19 @@ namespace DAL
             return PositionInfo.ToList(db.ExecuteDataSet(sql));
         }
 
+        public List<PositionInfo> Find(int pageIndex, int pageSize)
+        {
+            string sql =
+                $"select " +
+                $"position_id," +
+                $"position_name," +
+                $"position_desc " +
+                $"from store_management.`position` " +
+                $"order by position_id limit {pageSize} offset {pageSize * (pageIndex - 1)};";
+
+            return PositionInfo.ToList(db.ExecuteDataSet(sql));
+        }
+
         /// <summary>
         /// 查找某个职位信息
         /// </summary>

@@ -226,6 +226,10 @@
     <Content Include="WebForms\Position.aspx" />
     <Content Include="WebForms\Staff.aspx" />
     <Content Include="WebForms\Vip.aspx" />
+    <Content Include="Handlers\UpdateVipHandler.ashx" />
+    <Content Include="Handlers\DeleteVipHandler.ashx" />
+    <Content Include="Handlers\AddIntegralHandler.ashx" />
+    <Content Include="Handlers\DeleteIntegralHandler.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -270,15 +274,31 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="WebForms\AddStaffHandler.ashx" />
-    <Content Include="WebForms\UpdateStaffHandler.ashx" />
-    <Content Include="WebForms\DeleteStaffHandler.ashx" />
+    <Content Include="Handlers\AddStaffHandler.ashx" />
+    <Content Include="Handlers\UpdateStaffHandler.ashx" />
+    <Content Include="Handlers\DeleteStaffHandler.ashx" />
+    <Content Include="Handlers\AddPositionHandler.ashx" />
+    <Content Include="Handlers\UpdatePositionHandler.ashx" />
+    <Content Include="Handlers\DeletePositionHandler.ashx" />
+    <Content Include="Handlers\AddVipHandler.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\AddIntegralHandler.ashx.cs">
+      <DependentUpon>AddIntegralHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\DeleteIntegralHandler.ashx.cs">
+      <DependentUpon>DeleteIntegralHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\DeleteVipHandler.ashx.cs">
+      <DependentUpon>DeleteVipHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\UpdateVipHandler.ashx.cs">
+      <DependentUpon>UpdateVipHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -302,10 +322,19 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebForms\AddStaffHandler.ashx.cs">
+    <Compile Include="Handlers\AddPositionHandler.ashx.cs">
+      <DependentUpon>AddPositionHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\AddStaffHandler.ashx.cs">
       <DependentUpon>AddStaffHandler.ashx</DependentUpon>
     </Compile>
-    <Compile Include="WebForms\DeleteStaffHandler.ashx.cs">
+    <Compile Include="Handlers\AddVipHandler.ashx.cs">
+      <DependentUpon>AddVipHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\DeletePositionHandler.ashx.cs">
+      <DependentUpon>DeletePositionHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\DeleteStaffHandler.ashx.cs">
       <DependentUpon>DeleteStaffHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\Factory.aspx.cs">
@@ -357,7 +386,10 @@
     <Compile Include="WebForms\Staff.aspx.designer.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForms\UpdateStaffHandler.ashx.cs">
+    <Compile Include="Handlers\UpdatePositionHandler.ashx.cs">
+      <DependentUpon>UpdatePositionHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\UpdateStaffHandler.ashx.cs">
       <DependentUpon>UpdateStaffHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\Vip.aspx.cs">

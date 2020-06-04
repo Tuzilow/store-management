@@ -221,7 +221,6 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
 <script>
@@ -241,7 +240,7 @@
         $('#addBtn').on('click', function () {
             $.ajax({
                 type: 'POST',
-                url: 'AddStaffHandler.ashx',
+                url: '/Handlers/AddStaffHandler.ashx',
                 data: {
                     staff_name: $('#staff_name').val(),
                     staff_gender: $('input[name="staff_gender"]:checked').val(),
@@ -262,7 +261,7 @@
         $('#updateBtn').on('click', function () {
             $.ajax({
                 type: 'POST',
-                url: 'UpdateStaffHandler.ashx',
+                url: '/Handlers/UpdateStaffHandler.ashx',
                 data: {
                     staff_id: $('#staff_id_update').val(),
                     staff_name: $('#staff_name_update').val(),
@@ -284,7 +283,7 @@
         $('#deleteBtn').on('click', function () {
             $.ajax({
                 type: 'POST',
-                url: 'DeleteStaffHandler.ashx',
+                url: '/Handlers/DeleteStaffHandler.ashx',
                 data: {
                     staff_id: $('#deleteModal').attr('staff-id')
                 },
@@ -296,7 +295,7 @@
                     }
                 }
             });
-        })
+        });
     });
     // 改变页码
     function turnPage(index, size) {
@@ -333,6 +332,7 @@
             }
         }
     }
+    // 弹出删除框
     function showDelete(id) {
         $('#deleteModal').attr('staff-id', id);
     }

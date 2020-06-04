@@ -204,8 +204,8 @@ namespace Commons
         /// <returns></returns>
         public int GetTableDataNum(string table)
         {
-            string sql = $"select count(*) from {table};";
-            return Convert.ToInt32(Db.ExecuteScalar(sql));
+            string sql = $"select count(*) from store_management.{table};";
+            return Convert.ToInt32(Db.ExecuteScalar(sql).ToString());
         }
 
         /// <summary>

@@ -24,12 +24,17 @@ namespace BLL
             return DAL.Find();
         }
 
+        public List<IntegralInfo> Find(int pageIndex, int pageSize)
+        {
+            return DAL.Find(pageIndex, pageSize);
+        }
+
         /// <summary>
-        /// 根据id查积分记录
+        /// 根据vip id查积分记录
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public IntegralInfo FindOne(int id)
+        public List<IntegralInfo> FindOne(int id)
         {
             return DAL.FindOne(id);
         }

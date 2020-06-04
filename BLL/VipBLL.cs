@@ -20,6 +20,10 @@ namespace BLL
         {
             return DAL.Find();
         }
+        public List<VipInfo> Find(int pageIndex, int pageSize)
+        {
+            return DAL.Find(pageIndex, pageSize);
+        }
 
         /// <summary>
         /// 根据id查vip

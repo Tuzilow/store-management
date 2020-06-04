@@ -26,7 +26,7 @@ namespace DAL
                 $"factory_id," +
                 $"factory_name," +
                 $"factory_address," +
-                $"factory_phone" +
+                $"factory_phone " +
                 $"from store_management.factory;";
 
             return FactoryInfo.ToList(db.ExecuteDataSet(sql));
@@ -44,7 +44,7 @@ namespace DAL
                 $"factory_id," +
                 $"factory_name," +
                 $"factory_address," +
-                $"factory_phone" +
+                $"factory_phone " +
                 $"from store_management.factory where factory_id={id};";
             return FactoryInfo.ToList(db.ExecuteDataSet(sql))[0];
         }

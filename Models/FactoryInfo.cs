@@ -38,10 +38,10 @@ namespace Models
                         case "factory_name":
                             factory.Name = dr[dc].ToString();
                             break;
-                        case "factory_type":
+                        case "factory_address":
                             factory.Address = dr[dc].ToString();
                             break;
-                        case "factory_count":
+                        case "factory_phone":
                             factory.Phone = dr[dc].ToString();
                             break;
                     }

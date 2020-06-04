@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link href="../CSS/table.css" rel="stylesheet" />
+  <style>
+
+    .ctable {
+      width: 660px;
+    }
+
+    input {
+      border: none;
+      text-align: center;
+      overflow: hidden;
+      height: 100%;
+      font-size: 25px;
+      width: 100%;
+      background-color: #eee;
+    }
+
+    .cbtn {
+      cursor: pointer;
+      border-radius: 5px;
+      width: 250px;
+      background-color: #409EFF;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <form method="post">
+    <table class="ctable">
+      <caption>修改商品信息</caption>
+      <tr>
+        <td>商品编号：</td>
+        <td>{@pId}</td>
+        <input type="hidden" name="pId" value="{@pId}" />
+      </tr>
+      <tr>
+        <td>商品名字：</td>
+        <td><input type="text" name="pName" value="{@pName}" /></td>
+      </tr>
+      <tr>
+        <td>种类：</td>
+        <td><input type="text" name="pType" value="{@pType}" /></td>
+      </tr>
+      <tr>
+        <td>库存：</td>
+        <td><input type="text" name="pCount" value="{@pCount}" /></td>
+      </tr>
+      <tr>
+        <td>卖出数量：</td>
+        <td><input type="text" name="pSellCount" value="{@pSellCount}" /></td>
+      </tr>
+      <tr>
+        <td>生成日期：</td>
+        <td><input type="date" name="pCreateTime" value="{@pCreateTime}" /></td>
+      </tr>
+      <tr>
+        <td>成本：</td>
+        <td><input type="text" name="pCost" value="{@pCost}" /></td>
+      </tr>
+      <tr>
+        <td>售价：</td>
+        <td><input type="text" name="pPrice" value="{@pPrice}" /></td>
+      </tr>
+      <tr>
+        <td>保质期：</td>
+        <td><input type="date" name="pEndTime" value="{@pEndTime}" /></td>
+      </tr>
+      <tr>
+        <td>供应商：</td>
+        <td><input type="text" name="pFactoryId" value="{@pFactoryId}" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" class="cbtn" value="提    交" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

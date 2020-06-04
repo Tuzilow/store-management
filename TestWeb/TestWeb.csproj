@@ -120,8 +120,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CSS\table.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="HTML\UpdateFactory.html" />
+    <Content Include="HTML\UpdateGoods.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -230,6 +233,14 @@
     <Content Include="Handlers\DeleteVipHandler.ashx" />
     <Content Include="Handlers\AddIntegralHandler.ashx" />
     <Content Include="Handlers\DeleteIntegralHandler.ashx" />
+    <Content Include="Handlers\DeleteFactoryHandler.ashx" />
+    <Content Include="Handlers\DeleteGoodsHandler.ashx" />
+    <Content Include="Handlers\DeleteOrderHandler.ashx" />
+    <Content Include="Handlers\InsertFactoryHandler.ashx" />
+    <Content Include="Handlers\InsertGoodsHandler.ashx" />
+    <Content Include="Handlers\InsertOrderHandler.ashx" />
+    <Content Include="Handlers\UpdateFactoryHandler.ashx" />
+    <Content Include="Handlers\UpdateGoodsHandler.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -291,11 +302,35 @@
     <Compile Include="Handlers\AddIntegralHandler.ashx.cs">
       <DependentUpon>AddIntegralHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\DeleteFactoryHandler.ashx.cs">
+      <DependentUpon>DeleteFactoryHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\DeleteGoodsHandler.ashx.cs">
+      <DependentUpon>DeleteGoodsHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handlers\DeleteIntegralHandler.ashx.cs">
       <DependentUpon>DeleteIntegralHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\DeleteOrderHandler.ashx.cs">
+      <DependentUpon>DeleteOrderHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handlers\DeleteVipHandler.ashx.cs">
       <DependentUpon>DeleteVipHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\InsertFactoryHandler.ashx.cs">
+      <DependentUpon>InsertFactoryHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\InsertGoodsHandler.ashx.cs">
+      <DependentUpon>InsertGoodsHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\InsertOrderHandler.ashx.cs">
+      <DependentUpon>InsertOrderHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\UpdateFactoryHandler.ashx.cs">
+      <DependentUpon>UpdateFactoryHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\UpdateGoodsHandler.ashx.cs">
+      <DependentUpon>UpdateGoodsHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\UpdateVipHandler.ashx.cs">
       <DependentUpon>UpdateVipHandler.ashx</DependentUpon>

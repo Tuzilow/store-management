@@ -23,12 +23,13 @@ namespace DAL
         {
             string sql =
                 $"select " +
-                $"order_id," +
-                $"goods_id," +
-                $"factory_id," +
-                $"order_create_time," +
-                $"order_type," +
-                $"order_remarks" +
+                $"order_id, " +
+                $"goods_id, " +
+                $"goods_count, " +
+                $"factory_id, " +
+                $"order_create_time, " +
+                $"order_type, " +
+                $"order_remarks " +
                 $"from store_management.`order`;";
 
             return OrderInfo.ToList(db.ExecuteDataSet(sql));
@@ -43,12 +44,13 @@ namespace DAL
         {
             string sql =
                 $"select " +
-                $"order_id," +
-                $"goods_id," +
-                $"factory_id," +
-                $"order_create_time," +
-                $"order_type," +
-                $"order_remarks" +
+                $"order_id, " +
+                $"goods_id, " +
+                $"goods_Count, " +
+                $"factory_id, " +
+                $"order_create_time, " +
+                $"order_type, " +
+                $"order_remarks " +
                 $"from store_management.`order` where order_id={id}";
             return OrderInfo.ToList(db.ExecuteDataSet(sql))[0];
         }
@@ -61,8 +63,8 @@ namespace DAL
         public bool Insert(OrderInfo order)
         {
             string sql =
-                $"insert into `order`(goods_id,factory_id,order_create_time,order_type,order_remarks) " +
-                $"values ({order.GoodsId},{order.FactoryId},'{order.CreateTime}','{order.OrderType}','{order.Remakes}');";
+                $"insert into `order`(goods_id,goods_count,factory_id,order_create_time,order_type,order_remarks) " +
+                $"values ({order.GoodsId},{order.GoodsCount},{order.FactoryId},'{order.CreateTime.ToString("yyyy-MM-dd")}','{order.OrderType}','{order.Remakes}');";
 
             return db.ExecuteNonquery(sql) > 0;
         }
@@ -80,3 +82,4 @@ namespace DAL
         }
     }
 }
+

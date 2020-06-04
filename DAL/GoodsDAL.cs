@@ -82,7 +82,7 @@ namespace DAL
         {
             string sql =
                 $"insert into goods(goods_name,goods_type,goods_count,goods_sell_count,goods_cost,goods_price,goods_create_time,factory_id,goods_end_time) " +
-                $"values ('{goods.Name}','{goods.Type}',{goods.Count},{goods.SellCount},{goods.Cost},{goods.Price},'{goods.CreateTime}',{goods.FactoryId},'{goods.EndTime}');";
+                $"values ('{goods.Name}','{goods.Type}',{goods.Count},{goods.SellCount},{goods.Cost},{goods.Price},'{goods.CreateTime.ToString("yyyy-MM-dd")}',{goods.FactoryId},'{goods.EndTime.ToString("yyyy-MM-dd")}');";
 
             return db.ExecuteNonquery(sql) > 0;
         }
@@ -96,7 +96,7 @@ namespace DAL
         {
             string sql =
                 $"update goods " +
-                $"set goods_name='{goods.Name}',goods_type='{goods.Type}',goods_count={goods.Count},goods_sell_count={goods.SellCount},goods_cost={goods.Cost},goods_price={goods.Price},goods_create_time='{goods.CreateTime}',factory_id={goods.FactoryId},goods_end_time='{goods.EndTime}' " +
+                $"set goods_name='{goods.Name}',goods_type='{goods.Type}',goods_count={goods.Count},goods_sell_count={goods.SellCount},goods_cost={goods.Cost},goods_price={goods.Price},goods_create_time='{goods.CreateTime.ToString("yyyy-MM-dd")}',factory_id={goods.FactoryId},goods_end_time='{goods.EndTime.ToString("yyyy-MM-dd")}' " +
                 $"where goods_id={goods.Id};";
 
             return db.ExecuteNonquery(sql) > 0;

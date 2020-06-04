@@ -34,7 +34,7 @@
         <aside>
             <nav class="nav flex-column aside-nav">
                 <a class="nav-link active" href="javascript:void(0);" onclick=" iframe.location='Goods.aspx'">商品管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Order.aspx'">订单管理</a>
+                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Order.aspx?currentPage=1'">订单管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Factory.aspx'">供货商管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Staff.aspx?currentPage=1'">员工管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Position.aspx?currentPage=1'">职位管理</a>

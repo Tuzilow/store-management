@@ -17,11 +17,26 @@ namespace TestWeb.WebForms
         readonly PositionBLL positionBLL = new PositionBLL();
 
         protected int pageIndex = 1;
-        protected int pageSize = 10;
+        protected int pageSize = 9;
         protected int totalCount = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            string currentPage = Request.QueryString["currentPage"];
+
+            if (currentPage == "next" && pageIndex < pageSize)
+            {
+                pageIndex++;
+            }
+            else if (currentPage == "prev" && pageIndex > 1)
+            {
+                pageIndex--;
+            }
+            else if (currentPage != "next" && currentPage != "prev")
+            {
+                pageIndex = Convert.ToInt32(currentPage);
+            }
 
         }
 
@@ -39,12 +54,12 @@ namespace TestWeb.WebForms
             {
                 return "<tr><td colspan=\"8\" style=\"text-align:center;\">暂无数据</td></tr>";
             }
-            
+
             string[] positionArr = GetPositions();
             StringBuilder @string = new StringBuilder();
             foreach (StaffInfo staff in staffList)
             {
-                @string.Append("<tr>");
+                @string.Append($"<tr id=\"staff_{staff.Id}\">");
                 @string.Append($"<th scope=\"row\">{staff.Id}</th>");
                 @string.Append($"<td>{staff.Name}</td>");
                 @string.Append($"<td>{(staff.Gender == "m" ? "男" : "女")}</td>");
@@ -52,7 +67,7 @@ namespace TestWeb.WebForms
                 @string.Append($"<td>{staff.Address}</td>");
                 @string.Append($"<td>{staff.Salary}</td>");
                 @string.Append($"<td>{(positionArr[staff.PositionId] ?? "暂无职位")}</td>");
-                @string.Append($"<td><a class=\"btn btn-outline-primary btn-sm\" href=''>修改</a> <a class=\"btn btn-outline-danger btn-sm\" href='javascript:void(0)' onclick=''> 删除</a></td>");
+                @string.Append($"<td><a class=\"btn btn-outline-primary btn-sm\" href=\"#updateStaff\" data-toggle=\"drawer\" aria-foldedopen=\"false\" aria-controls=\"updatetaff\" onclick=\"loadOneStaff({staff.Id})\">修改</a> <a class=\"btn btn-outline-danger btn-sm\" href='javascript:void(0)' data-toggle=\"modal\" data-target=\"#deleteModal\" onclick=\"showDelete({staff.Id})\"> 删除</a></td>");
                 @string.Append("</tr>");
             }
 
@@ -66,7 +81,7 @@ namespace TestWeb.WebForms
         protected string[] GetPositions()
         {
             List<PositionInfo> positionList = positionBLL.Find();
-            
+
             if (positionList.Count() == 0)
             {
                 return null;

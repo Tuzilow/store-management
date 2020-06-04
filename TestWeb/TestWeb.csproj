@@ -111,6 +111,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-drawer.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -125,10 +126,12 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\drawer.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\layer.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -267,6 +270,9 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="WebForms\AddStaffHandler.ashx" />
+    <Content Include="WebForms\UpdateStaffHandler.ashx" />
+    <Content Include="WebForms\DeleteStaffHandler.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -295,6 +301,12 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\AddStaffHandler.ashx.cs">
+      <DependentUpon>AddStaffHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\DeleteStaffHandler.ashx.cs">
+      <DependentUpon>DeleteStaffHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\Factory.aspx.cs">
       <DependentUpon>Factory.aspx</DependentUpon>
@@ -344,6 +356,9 @@
     </Compile>
     <Compile Include="WebForms\Staff.aspx.designer.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\UpdateStaffHandler.ashx.cs">
+      <DependentUpon>UpdateStaffHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\Vip.aspx.cs">
       <DependentUpon>Vip.aspx</DependentUpon>

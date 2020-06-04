@@ -36,14 +36,13 @@
                 <a class="nav-link active" href="javascript:void(0);" onclick=" iframe.location='Goods.aspx'">商品管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Order.aspx'">订单管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Factory.aspx'">供货商管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Staff.aspx'">员工管理</a>
+                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Staff.aspx?currentPage=1'">员工管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Vip.aspx'">会员管理</a>
                 <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Position.aspx'">职位管理</a>
             </nav>
         </aside>
         <main>
             <iframe name="iframe" class="iframe-class" src="Goods.aspx"></iframe>
-
         </main>
     </div>
 </body>

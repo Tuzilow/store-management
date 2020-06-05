@@ -40,24 +40,24 @@
                 <form id="addStaffForm" action="AddStaffHandler.ashx" method="post">
                     <div class="form-group">
                         <label for="staff_account">账号</label>
-                        <input type="text" class="form-control" id="staff_account" name="staff_account" />
+                        <input type="text" class="form-control" id="staff_account" name="staff_account" maxlength="128" required/>
                     </div>
                     <div class="form-group">
                         <label for="staff_password">密码</label>
-                        <input type="text" class="form-control" id="staff_password" name="staff_password" />
+                        <input type="text" class="form-control" id="staff_password" name="staff_password" required/>
                     </div>
                     <div class="form-group">
                         <label for="staff_name">姓名</label>
-                        <input type="text" class="form-control" id="staff_name" name="staff_name" />
+                        <input type="text" class="form-control" id="staff_name" name="staff_name"  maxlength="4" required />
                     </div>
                     <div class="form-group">
                         <label for="staff_gender">性别</label>
                         <div class="form-check">
-                            <input type="radio" name="staff_gender" id="staff_gender_m" value="m" />
+                            <input type="radio" name="staff_gender" id="staff_gender_m" value="m" required/>
                             <label class="form-check-label" for="staff_gender_m">
                                 男
                             </label>
-                            <input type="radio" name="staff_gender" id="staff_gender_f" value="f" />
+                            <input type="radio" name="staff_gender" id="staff_gender_f" value="f" required/>
                             <label class="form-check-label" for="staff_gender_f">
                                 女
                             </label>
@@ -69,15 +69,15 @@
                     </div>
                     <div class="form-group">
                         <label for="staff_address">地址</label>
-                        <input type="text" class="form-control" id="staff_address" name="staff_address" />
+                        <input type="text" class="form-control" id="staff_address" name="staff_address" required/>
                     </div>
                     <div class="form-group">
                         <label for="staff_salary">工资</label>
-                        <input type="text" class="form-control" id="staff_salary" name="staff_salary" />
+                        <input type="text" class="form-control" id="staff_salary" name="staff_salary" required/>
                     </div>
                     <div class="form-group">
                         <label for="staff_position_id">职位</label>
-                        <select class="form-control" id="staff_position_id" name="staff_position_id">
+                        <select class="form-control" id="staff_position_id" name="staff_position_id" required>
                             <% 
                                 string[] positionArr = GetPositions();
                                 for (int i = 0; i < positionArr.Length; i++)

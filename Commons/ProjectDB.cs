@@ -150,6 +150,7 @@ namespace Commons
                 $"create table if not exists staff(" +
                 $"staff_id int primary key not null auto_increment," +
                 $"staff_name nvarchar(4) not null," +
+                $"staff_account varchar(128) not null unique," +
                 $"staff_gender char(1) not null," +
                 $"staff_birthday datetime," +
                 $"staff_address nvarchar(128)," +

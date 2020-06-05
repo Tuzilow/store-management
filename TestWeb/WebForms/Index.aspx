@@ -33,13 +33,13 @@
     <div class="row content">
         <aside>
             <nav class="nav flex-column aside-nav">
-                <a class="nav-link active" href="javascript:void(0);" onclick=" iframe.location='Goods.aspx'">商品管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Order.aspx?currentPage=1'">订单管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Factory.aspx'">供货商管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Staff.aspx?currentPage=1'">员工管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Position.aspx?currentPage=1'">职位管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Vip.aspx?currentPage=1'">会员管理</a>
-                <a class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Integral.aspx?currentPage=1'">积分管理</a>
+                <a id="goods" class="nav-link active" href="javascript:void(0);" >商品管理</a>
+                <a id="order" class="nav-link" href="javascript:void(0);" >订单管理</a>
+                <a id="factory" class="nav-link" href="javascript:void(0);" >供货商管理</a>
+                <a id="staff" class="nav-link" href="javascript:void(0);" >员工管理</a>
+                <a id="position" class="nav-link" href="javascript:void(0);" >职位管理</a>
+                <a id="vip" class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Vip.aspx?currentPage=1'">会员管理</a>
+                <a id="integral" class="nav-link" href="javascript:void(0);" >积分管理</a>
             </nav>
         </aside>
         <main>
@@ -48,3 +48,92 @@
     </div>
 </body>
 </html>
+<script>
+    $(function () {
+        // 切换tab
+        $('#goods').on('click', function () {
+            iframe.location = 'Goods.aspx';
+
+            $('#goods').removeClass('active');
+            $('#order').removeClass('active');
+            $('#factory').removeClass('active');
+            $('#staff').removeClass('active');
+            $('#position').removeClass('active');
+            $('#vip').removeClass('active');
+            $('#integral').removeClass('active');
+            $('#goods').addClass('active');
+        });
+        $('#order').on('click', function () {
+            iframe.location = 'Order.aspx?currentPage=1';
+
+            $('#goods').removeClass('active');
+            $('#order').removeClass('active');
+            $('#factory').removeClass('active');
+            $('#staff').removeClass('active');
+            $('#position').removeClass('active');
+            $('#vip').removeClass('active');
+            $('#integral').removeClass('active');
+            $('#order').addClass('active');
+        });
+        $('#factory').on('click', function () {
+            iframe.location = 'Factory.aspx';
+
+            $('#goods').removeClass('active');
+            $('#order').removeClass('active');
+            $('#factory').removeClass('active');
+            $('#staff').removeClass('active');
+            $('#position').removeClass('active');
+            $('#vip').removeClass('active');
+            $('#integral').removeClass('active');
+            $('#factory').addClass('active');
+        });
+        $('#staff').on('click', function () {
+            iframe.location = 'Staff.aspx?currentPage=1';
+
+            $('#goods').removeClass('active');
+            $('#order').removeClass('active');
+            $('#factory').removeClass('active');
+            $('#staff').removeClass('active');
+            $('#position').removeClass('active');
+            $('#vip').removeClass('active');
+            $('#integral').removeClass('active');
+            $('#staff').addClass('active');
+        });
+        $('#position').on('click', function () {
+            iframe.location = 'Position.aspx?currentPage=1';
+
+            $('#goods').removeClass('active');
+            $('#order').removeClass('active');
+            $('#factory').removeClass('active');
+            $('#staff').removeClass('active');
+            $('#position').removeClass('active');
+            $('#vip').removeClass('active');
+            $('#integral').removeClass('active');
+            $('#position').addClass('active');
+        });
+        $('#vip').on('click', function () {
+            iframe.location = 'Vip.aspx?currentPage=1';
+
+            $('#goods').removeClass('active');
+            $('#order').removeClass('active');
+            $('#factory').removeClass('active');
+            $('#staff').removeClass('active');
+            $('#position').removeClass('active');
+            $('#vip').removeClass('active');
+            $('#integral').removeClass('active');
+            $('#vip').addClass('active');
+        });
+        $('#integral').on('click', function () {
+            iframe.location = 'Integral.aspx?currentPage=1';
+
+            $('#goods').removeClass('active');
+            $('#order').removeClass('active');
+            $('#factory').removeClass('active');
+            $('#staff').removeClass('active');
+            $('#position').removeClass('active');
+            $('#vip').removeClass('active');
+            $('#integral').removeClass('active');
+            $('#integral').addClass('active');
+        });
+    });
+</script>

@@ -24,6 +24,7 @@ namespace DAL
             string sql =
                 $"select " +
                 $"staff_id," +
+                $"staff_account," +
                 $"staff_name," +
                 $"staff_gender," +
                 $"staff_birthday," +
@@ -39,6 +40,7 @@ namespace DAL
             string sql =
                 $"select " +
                 $"staff_id," +
+                $"staff_account," +
                 $"staff_name," +
                 $"staff_gender," +
                 $"staff_birthday," +
@@ -62,6 +64,7 @@ namespace DAL
             string sql =
                 $"select " +
                 $"staff_id," +
+                $"staff_account," +
                 $"staff_name," +
                 $"staff_gender," +
                 $"staff_birthday," +
@@ -77,9 +80,9 @@ namespace DAL
         /// </summary>
         /// <param name="name">商品名</param>
         /// <returns></returns>
-        public int FindIdByName(string name)
+        public int FindIdByName(string account)
         {
-            string sql = $"select staff_id from store_management.staff where staff_name='{name}';";
+            string sql = $"select staff_id from store_management.staff where staff_account='{account}';";
 
             return Convert.ToInt32(db.ExecuteScalar(sql));
         }
@@ -92,8 +95,8 @@ namespace DAL
         public bool Insert(StaffInfo staff)
         {
             string sql =
-                $"insert into staff(staff_name,staff_gender,staff_birthday,staff_address,staff_salary,staff_position_id) " +
-                $"values ('{staff.Name}','{staff.Gender}','{staff.Birthday.ToString("yyyy-MM-dd")}','{staff.Address}',{staff.Salary},'{staff.PositionId}');";
+                $"insert into staff(staff_account,staff_name,staff_gender,staff_birthday,staff_address,staff_salary,staff_position_id) " +
+                $"values ('{staff.Account}','{staff.Name}','{staff.Gender}','{staff.Birthday.ToString("yyyy-MM-dd")}','{staff.Address}',{staff.Salary},'{staff.PositionId}');";
 
             return db.ExecuteNonquery(sql) > 0;
         }

@@ -18,6 +18,7 @@ namespace Models
         public double Salary { get; set; }
         // 职位
         public int PositionId { get; set; }
+        public string Account { get; set; }
 
         /// <summary>
         /// DataSet转List
@@ -54,6 +55,9 @@ namespace Models
                             break;
                         case "staff_salary":
                             staff.Salary = Convert.ToDouble(dr[dc]);
+                            break;
+                        case "staff_account":
+                            staff.Account = dr[dc].ToString();
                             break;
                     }
                 }

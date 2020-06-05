@@ -41,9 +41,9 @@ namespace BLL
         /// </summary>
         /// <param name="name">商品名</param>
         /// <returns></returns>
-        public bool IsStaffExist(string name)
+        public bool IsStaffExist(string account)
         {
-            return DAL.FindIdByName(name) != 0;
+            return DAL.FindIdByName(account) != 0;
         }
 
         /// <summary>
@@ -56,16 +56,16 @@ namespace BLL
         /// <param name="salary"></param>
         /// <param name="positionId"></param>
         /// <returns></returns>
-        public bool Insert(string name, string gender, DateTime birthday, string address, double salary, int positionId)
+        public bool Insert(string account, string name, string gender, DateTime birthday, string address, double salary, int positionId)
         {
-            // 如果商品存在，返回false
-            if (IsStaffExist(name))
+            if (IsStaffExist(account))
             {
                 return false;
             }
 
             StaffInfo staff = new StaffInfo()
             {
+                Account = account,
                 Name = name,
                 Gender = gender,
                 Birthday = birthday,

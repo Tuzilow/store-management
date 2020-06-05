@@ -61,6 +61,7 @@ namespace TestWeb.WebForms
             {
                 @string.Append($"<tr id=\"staff_{staff.Id}\">");
                 @string.Append($"<th scope=\"row\">{staff.Id}</th>");
+                @string.Append($"<td>{staff.Account}</td>");
                 @string.Append($"<td>{staff.Name}</td>");
                 @string.Append($"<td>{(staff.Gender == "m" ? "男" : "女")}</td>");
                 @string.Append($"<td>{staff.Birthday.ToString("yyyy-MM-dd")}</td>");

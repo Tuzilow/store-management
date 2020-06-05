@@ -39,6 +39,10 @@
             <div class="drawer-body">
                 <form id="addStaffForm" action="AddStaffHandler.ashx" method="post">
                     <div class="form-group">
+                        <label for="staff_account">账号</label>
+                        <input type="text" class="form-control" id="staff_account" name="staff_account" />
+                    </div>
+                    <div class="form-group">
                         <label for="staff_name">姓名</label>
                         <input type="text" class="form-control" id="staff_name" name="staff_name" />
                     </div>
@@ -97,6 +101,10 @@
             <div class="drawer-body">
                 <form id="updateStaffForm">
                     <input type="hidden" id="staff_id_update" name="staff_id" value="0" />
+                    <div class="form-group">
+                        <label for="staff_account">账号</label>
+                        <input type="text" class="form-control" id="staff_account_update" name="staff_account" disabled />
+                    </div>
                     <div class="form-group">
                         <label for="staff_name">姓名</label>
                         <input type="text" class="form-control" id="staff_name_update" name="staff_name" />
@@ -158,6 +166,7 @@
         <thead class="table-dark">
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">账号</th>
                 <th scope="col">姓名</th>
                 <th scope="col">性别</th>
                 <th scope="col">生日</th>
@@ -242,6 +251,7 @@
                 type: 'POST',
                 url: '/Handlers/AddStaffHandler.ashx',
                 data: {
+                    staff_account: $('#staff_account').val(),
                     staff_name: $('#staff_name').val(),
                     staff_gender: $('input[name="staff_gender"]:checked').val(),
                     staff_birthday: $('#staff_birthday').val(),
@@ -313,21 +323,22 @@
 
         $('#staff_id_update').val(member[0].innerHTML);
         $('#staff_name_update').val(member[1].innerHTML);
+        $('#staff_name_update').val(member[2].innerHTML);
 
-        if (member[2].innerHTML === '男') {
+        if (member[3].innerHTML === '男') {
             $('#staff_gender_m_update').attr('checked', true);
         } else {
             $('#staff_gender_f_update').attr('checked', true);
         }
 
-        $('#staff_birthday_update').val(member[3].innerHTML);
-        $('#staff_address_update').val(member[4].innerHTML);
-        $('#staff_salary_update').val(member[5].innerHTML);
+        $('#staff_birthday_update').val(member[4].innerHTML);
+        $('#staff_address_update').val(member[5].innerHTML);
+        $('#staff_salary_update').val(member[6].innerHTML);
 
 
         var ops = $("#staff_position_id_update").find('option');
         for (var i = 0; i < ops.length; i++) {
-            if (ops[i].innerHTML == member[6].innerHTML) {
+            if (ops[i].innerHTML == member[7].innerHTML) {
                 ops[i].setAttribute('selected', true);
             }
         }

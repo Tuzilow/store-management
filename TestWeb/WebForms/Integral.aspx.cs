@@ -22,7 +22,20 @@ namespace TestWeb.WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string currentPage = Request.QueryString["currentPage"];
 
+            if (currentPage == "next" && pageIndex < pageSize)
+            {
+                pageIndex++;
+            }
+            else if (currentPage == "prev" && pageIndex > 1)
+            {
+                pageIndex--;
+            }
+            else if (currentPage != "next" && currentPage != "prev")
+            {
+                pageIndex = Convert.ToInt32(currentPage);
+            }
         }
 
         protected string GetIntegrals()

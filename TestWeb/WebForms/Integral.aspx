@@ -81,7 +81,7 @@
 
     <table class="table table-hover border table-striped">
         <caption class="h5 table-title">
-            <span>会员表</span>
+            <span>积分表</span>
             <span>
                 <button type="button" class="btn btn-info add-btn btn-sm" data-toggle="modal" data-target="#addIntegral">添加</button>
             </span>

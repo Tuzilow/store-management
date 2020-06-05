@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Commons;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace TestWeb.WebForms
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class Index : BasePage
     {
         readonly ProjectDB db = new ProjectDB();
         readonly FactoryBLL factoryBLL = new FactoryBLL();
@@ -66,13 +67,13 @@ namespace TestWeb.WebForms
 
             if (db.GetTableDataNum("staff") == 0)
             {
-                staffBLL.Insert("184804314", "王小明", "m", Convert.ToDateTime("1990-01-01"), "郑州", 20000, 1);
-                staffBLL.Insert("145369214", "李小狼", "m", Convert.ToDateTime("1990-01-01"), "郑州", 2000, 2);
-                staffBLL.Insert("145369215", "李梅", "f", Convert.ToDateTime("1990-01-01"), "上海", 10000, 3);
-                staffBLL.Insert("145369216", "刘芳芳", "f", Convert.ToDateTime("1990-01-01"), "郑州", 2000, 4);
+                staffBLL.Insert("184804314", "王小明", "m", Convert.ToDateTime("1990-01-01"), "郑州", 20000, 1, "123465");
+                staffBLL.Insert("145369214", "李小狼", "m", Convert.ToDateTime("1990-01-01"), "郑州", 2000, 2, "123465");
+                staffBLL.Insert("145369215", "李梅", "f", Convert.ToDateTime("1990-01-01"), "上海", 10000, 3, "123465");
+                staffBLL.Insert("145369216", "刘芳芳", "f", Convert.ToDateTime("1990-01-01"), "郑州", 2000, 4, "123465");
                 for (int i = 0; i < 5; i++)
                 {
-                    staffBLL.Insert("12345678" + i, "员工" + i, "m", Convert.ToDateTime("1990-01-01"), "郑州", 1000, 5);
+                    staffBLL.Insert("12345678" + i, "员工" + i, "m", Convert.ToDateTime("1990-01-01"), "郑州", 1000, 5, "123465");
                 }
             }
 
@@ -91,6 +92,13 @@ namespace TestWeb.WebForms
                     integralBLL.Insert(false, 100, i + 1);
                 }
             }
+        }
+
+        protected StaffInfo GetUser()
+        {
+            string account = Session["User"].ToString();
+
+            return staffBLL.FindOne(account);
         }
     }
 }

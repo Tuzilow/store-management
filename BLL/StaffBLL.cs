@@ -35,6 +35,10 @@ namespace BLL
         {
             return DAL.FindOne(id);
         }
+        public StaffInfo FindOne(string account)
+        {
+            return FindOne(DAL.FindIdByName(account));
+        }
 
         /// <summary>
         /// 判断某员工是否存在
@@ -47,6 +51,17 @@ namespace BLL
         }
 
         /// <summary>
+        /// 登陆
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public bool Login(string account, string password)
+        {
+            return DAL.Login(account, password) != 0;
+        }
+
+        /// <summary>
         /// 添加新员工
         /// </summary>
         /// <param name="name"></param>
@@ -56,7 +71,7 @@ namespace BLL
         /// <param name="salary"></param>
         /// <param name="positionId"></param>
         /// <returns></returns>
-        public bool Insert(string account, string name, string gender, DateTime birthday, string address, double salary, int positionId)
+        public bool Insert(string account, string name, string gender, DateTime birthday, string address, double salary, int positionId, string password)
         {
             if (IsStaffExist(account))
             {
@@ -71,7 +86,8 @@ namespace BLL
                 Birthday = birthday,
                 Address = address,
                 Salary = salary,
-                PositionId = positionId
+                PositionId = positionId,
+                Password = password
             };
 
             return DAL.Insert(staff);

@@ -14,6 +14,7 @@ namespace TestWeb.WebForms
         public void ProcessRequest(HttpContext context)
         {
             string account = context.Request.Form["staff_account"];
+            string password = context.Request.Form["staff_password"];
             string name = context.Request.Form["staff_name"];
             string gender = context.Request.Form["staff_gender"];
             string birthday = context.Request.Form["staff_birthday"];
@@ -21,7 +22,7 @@ namespace TestWeb.WebForms
             string salary = context.Request.Form["staff_salary"];
             string positionId = context.Request.Form["staff_position_id"];
 
-            if (new StaffBLL().Insert(account, name, gender, Convert.ToDateTime(birthday), address, Convert.ToDouble(salary), Convert.ToInt32(positionId)))
+            if (new StaffBLL().Insert(account, name, gender, Convert.ToDateTime(birthday), address, Convert.ToDouble(salary), Convert.ToInt32(positionId), password))
             {
                 context.Response.Write("{\"status\": 0,\"message\":\"添加成功\"}");
             }

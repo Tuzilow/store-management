@@ -225,6 +225,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="WebForms\Integral.aspx" />
+    <Content Include="WebForms\Login.aspx" />
     <Content Include="WebForms\Order.aspx" />
     <Content Include="WebForms\Position.aspx" />
     <Content Include="WebForms\Staff.aspx" />
@@ -372,6 +373,9 @@
     <Compile Include="Handlers\DeleteStaffHandler.ashx.cs">
       <DependentUpon>DeleteStaffHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WebForms\Factory.aspx.cs">
       <DependentUpon>Factory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -399,6 +403,13 @@
     </Compile>
     <Compile Include="WebForms\Integral.aspx.designer.cs">
       <DependentUpon>Integral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>

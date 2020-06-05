@@ -16,12 +16,18 @@
             padding-left: 0 !important;
             padding-right: 0 !important;
             padding-top: 0 !important;
+            margin: 0;
         }
 
             main .iframe-class {
                 width: 100%;
-                height: 100%;
+                height: 93vh;
+                overflow-y: scroll !important;
             }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -33,23 +39,31 @@
     <div class="row content">
         <aside>
             <nav class="nav flex-column aside-nav">
-                <a id="goods" class="nav-link active" href="javascript:void(0);" >商品管理</a>
-                <a id="order" class="nav-link" href="javascript:void(0);" >订单管理</a>
-                <a id="factory" class="nav-link" href="javascript:void(0);" >供货商管理</a>
-                <a id="staff" class="nav-link" href="javascript:void(0);" >员工管理</a>
-                <a id="position" class="nav-link" href="javascript:void(0);" >职位管理</a>
+                <a id="goods" class="nav-link active" href="javascript:void(0);">商品管理</a>
+                <a id="order" class="nav-link" href="javascript:void(0);">订单管理</a>
+                <a id="factory" class="nav-link" href="javascript:void(0);">供货商管理</a>
+                <a id="staff" class="nav-link" href="javascript:void(0);">员工管理</a>
+                <a id="position" class="nav-link" href="javascript:void(0);">职位管理</a>
                 <a id="vip" class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Vip.aspx?currentPage=1'">会员管理</a>
-                <a id="integral" class="nav-link" href="javascript:void(0);" >积分管理</a>
+                <a id="integral" class="nav-link" href="javascript:void(0);">积分管理</a>
             </nav>
         </aside>
         <main>
-            <iframe name="iframe" class="iframe-class" src="Goods.aspx"></iframe>
+            <iframe name="iframe" class="iframe-class" src="Goods.aspx" scrolling="yes"></iframe>
         </main>
     </div>
 </body>
 </html>
 <script>
     $(function () {
+        console.log(localStorage.getItem('user_position_id') == 1)
+        if (localStorage.getItem('user_position_id') != 1 && localStorage.getItem('user_position_id') != 2 && localStorage.getItem('user_position_id') != 3) {
+            $('#staff').addClass('hidden');
+            $('#position').addClass('hidden');
+        } else {
+            $('#staff').removeClass('hidden');
+            $('#position').removeClass('hidden');
+        }
         // 切换tab
         $('#goods').on('click', function () {
             iframe.location = 'Goods.aspx';
@@ -136,4 +150,5 @@
             $('#integral').addClass('active');
         });
     });
+    localStorage.setItem('user_position_id', <%=GetUser().PositionId %>);
 </script>

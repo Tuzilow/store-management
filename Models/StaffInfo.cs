@@ -19,6 +19,7 @@ namespace Models
         // 职位
         public int PositionId { get; set; }
         public string Account { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         /// DataSet转List
@@ -58,6 +59,9 @@ namespace Models
                             break;
                         case "staff_account":
                             staff.Account = dr[dc].ToString();
+                            break;
+                        case "staff_password":
+                            staff.Password = dr[dc].ToString();
                             break;
                     }
                 }

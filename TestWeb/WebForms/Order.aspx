@@ -28,7 +28,7 @@ body {
 </head>
 <body>
       <div class="col-sm-12" style="width:100%">
-         <span class="h1 col-10">订单表</span>
+         <span class="h2 col-10">订单表</span>
          <input type="button" class="btn btn-info cbtn text-right"  data-toggle="modal" data-target="#exampleModal" style="margin-left:10px;" value="添  加 "/>
     </div>
 <table class="table table-hover border">

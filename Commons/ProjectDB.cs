@@ -156,6 +156,7 @@ namespace Commons
                 $"staff_address nvarchar(128)," +
                 $"staff_position_id int not null," +
                 $"staff_salary double not null," +
+                $"staff_password varchar(128) not null," +
                 $"foreign key(staff_position_id) references `position`(position_id)" +
                 $");";
 

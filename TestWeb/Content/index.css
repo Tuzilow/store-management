@@ -16,7 +16,7 @@ caption {
     .content .aside-nav {
         flex: 1;
         background-color: #384451;
-        height: 100vh;
+        height: 93vh;
     }
 
         .content .aside-nav a {
@@ -33,7 +33,6 @@ caption {
         flex: 9;
         box-sizing: border-box;
         background-color: #eef1f6;
-        padding: 1rem 1.5rem;
     }
 
         .content main table,

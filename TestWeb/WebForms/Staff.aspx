@@ -34,13 +34,17 @@
     <div id="addStaff" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="addStaff">
         <div class="drawer-contents">
             <div class="drawer-heading">
-                <h2 class="drawer-title">添加员工</h2>
+                <h4 class="drawer-title">添加员工</h4>
             </div>
             <div class="drawer-body">
                 <form id="addStaffForm" action="AddStaffHandler.ashx" method="post">
                     <div class="form-group">
                         <label for="staff_account">账号</label>
                         <input type="text" class="form-control" id="staff_account" name="staff_account" />
+                    </div>
+                    <div class="form-group">
+                        <label for="staff_password">密码</label>
+                        <input type="text" class="form-control" id="staff_password" name="staff_password" />
                     </div>
                     <div class="form-group">
                         <label for="staff_name">姓名</label>
@@ -252,6 +256,7 @@
                 url: '/Handlers/AddStaffHandler.ashx',
                 data: {
                     staff_account: $('#staff_account').val(),
+                    staff_password: $('#staff_password').val(),
                     staff_name: $('#staff_name').val(),
                     staff_gender: $('input[name="staff_gender"]:checked').val(),
                     staff_birthday: $('#staff_birthday').val(),

@@ -88,6 +88,19 @@ namespace DAL
         }
 
         /// <summary>
+        /// 登陆
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public int Login(string account, string password)
+        {
+            string sql = $"select staff_id from store_management.staff where staff_account='{account}' and staff_password='{password}'";
+
+            return Convert.ToInt32(db.ExecuteScalar(sql));
+        }
+
+        /// <summary>
         /// 增加新员工
         /// </summary>
         /// <param name="staff"></param>
@@ -95,8 +108,8 @@ namespace DAL
         public bool Insert(StaffInfo staff)
         {
             string sql =
-                $"insert into staff(staff_account,staff_name,staff_gender,staff_birthday,staff_address,staff_salary,staff_position_id) " +
-                $"values ('{staff.Account}','{staff.Name}','{staff.Gender}','{staff.Birthday.ToString("yyyy-MM-dd")}','{staff.Address}',{staff.Salary},'{staff.PositionId}');";
+                $"insert into staff(staff_account,staff_name,staff_gender,staff_birthday,staff_address,staff_salary,staff_position_id,staff_password) " +
+                $"values ('{staff.Account}','{staff.Name}','{staff.Gender}','{staff.Birthday.ToString("yyyy-MM-dd")}','{staff.Address}',{staff.Salary},'{staff.PositionId}','{staff.Password}');";
 
             return db.ExecuteNonquery(sql) > 0;
         }

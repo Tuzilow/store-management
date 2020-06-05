@@ -95,9 +95,16 @@ namespace DAL
         /// <returns></returns>
         public int Login(string account, string password)
         {
-            string sql = $"select staff_id from store_management.staff where staff_account='{account}' and staff_password='{password}'";
+            try
+            {
+                string sql = $"select staff_id from store_management.staff where staff_account='{account}' and staff_password='{password}'";
 
-            return Convert.ToInt32(db.ExecuteScalar(sql));
+                return Convert.ToInt32(db.ExecuteScalar(sql));
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
         /// <summary>

@@ -183,6 +183,11 @@
             });
         });
         $('#deleteBtn').on('click', function () {
+            var id = $('#deleteModal').attr('position-id');
+            if (id == 1 || id == 2 || id == 3) {
+                alert('该职位禁止删除');
+                return;
+            }
             $.ajax({
                 type: 'POST',
                 url: '/Handlers/DeletePositionHandler.ashx',

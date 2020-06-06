@@ -106,10 +106,6 @@
                 <form id="updateStaffForm">
                     <input type="hidden" id="staff_id_update" name="staff_id" value="0" />
                     <div class="form-group">
-                        <label for="staff_account">账号</label>
-                        <input type="text" class="form-control" id="staff_account_update" name="staff_account" disabled />
-                    </div>
-                    <div class="form-group">
                         <label for="staff_name">姓名</label>
                         <input type="text" class="form-control" id="staff_name_update" name="staff_name" />
                     </div>

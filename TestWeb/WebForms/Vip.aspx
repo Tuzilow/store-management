@@ -41,7 +41,7 @@
                     <form id="addVipForm" action="AddVipHandler.ashx" method="post">
                         <div class="form-group">
                             <label for="vip_name">姓名</label>
-                            <input type="text" class="form-control" id="vip_name" name="vip_name" />
+                            <input type="text" class="form-control" id="vip_name" name="vip_name" maxlength="4" required />
                         </div>
                         <div class="form-group">
                             <label for="vip_gender">性别</label>
@@ -58,11 +58,11 @@
                         </div>
                         <div class="form-group">
                             <label for="vip_birthday">生日</label>
-                            <input type="date" class="form-control" id="vip_birthday" name="vip_birthday" />
+                            <input type="date" class="form-control" id="vip_birthday" name="vip_birthday" required/>
                         </div>
                         <div class="form-group">
                             <label for="vip_join">加入时间</label>
-                            <input type="date" class="form-control" id="vip_join" name="vip_join" />
+                            <input type="date" class="form-control" id="vip_join" name="vip_join" required />
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                         <button type="button" class="btn btn-success" id="addBtn">提交</button>
@@ -83,7 +83,7 @@
                     <input type="hidden" id="vip_id_update" name="vip_id" value="0" />
                     <div class="form-group">
                         <label for="vip_name">姓名</label>
-                        <input type="text" class="form-control" id="vip_name_update" name="vip_name" />
+                        <input type="text" class="form-control" id="vip_name_update" name="vip_name" maxlength="4" required />
                     </div>
                     <div class="form-group">
                         <label for="vip_gender">性别</label>
@@ -100,11 +100,11 @@
                     </div>
                     <div class="form-group">
                         <label for="vip_birthday">生日</label>
-                        <input type="date" class="form-control" id="vip_birthday_update" name="vip_birthday" />
+                        <input type="date" class="form-control" id="vip_birthday_update" name="vip_birthday" required/>
                     </div>
                     <div class="form-group">
                         <label for="vip_join">加入时间</label>
-                        <input type="date" class="form-control" id="vip_join_update" name="vip_join" />
+                        <input type="date" class="form-control" id="vip_join_update" name="vip_join" required/>
                     </div>
                     <button type="button" class="btn btn-secondary"  data-dismiss="modal">取消</button>
                     <button type="button" class="btn btn-success" id="updateBtn">提交</button>

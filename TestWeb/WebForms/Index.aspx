@@ -44,7 +44,7 @@
                 <a id="factory" class="nav-link" href="javascript:void(0);">供货商管理</a>
                 <a id="staff" class="nav-link" href="javascript:void(0);">员工管理</a>
                 <a id="position" class="nav-link" href="javascript:void(0);">职位管理</a>
-                <a id="vip" class="nav-link" href="javascript:void(0);" onclick=" iframe.location='Vip.aspx?currentPage=1'">会员管理</a>
+                <a id="vip" class="nav-link" href="javascript:void(0);">会员管理</a>
                 <a id="integral" class="nav-link" href="javascript:void(0);">积分管理</a>
             </nav>
         </aside>
